@@ -1,0 +1,313 @@
+$breakpoints: (
+    "smob": "(max-width: 420px)",
+    "mob": "(min-width:421px) and (max-width:652px)",
+    "hero": "(min-width:540px) and (max-width:652px)",
+    "sstab": "(min-width:559px) and (max-width:652px)",
+    "stab": "(min-width:653px) and (max-width:744px)",
+    "tab": "(min-width:744px) and (max-width:1000px)",
+    "tabs": "(min-width:1000px)",
+    "tabss": "(max-width:1000px)",
+    "sdesk": "(min-width:1001px) and (max-width:1500px)",
+    "desk": "(min-width:1501px) and (max-width:2000px)",
+);
+
+@mixin breakpoint($user-value) {
+  $my-map: map-get($breakpoints, $user-value);
+  @if $my-map {
+      @media (#{$my-map}) {
+          @content;
+      }
+  }@else {
+      @error "breakpoint #{$user-value} Not Working"
+  }
+};
+
+@font-face {
+    font-family: Robthin;
+    src: url(../../Fonts/Roboto-static/Roboto-Thin.ttf);
+}
+
+.bar {
+    height: 58px;
+    width: 100vw;
+    padding: 0px 3.5%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: robthin;
+    z-index: 999999999999;
+    position: absolute;
+    @include breakpoint(smob) {
+      // position: ;
+    }
+}
+
+.logo {
+    margin-left: 10px;
+}
+
+.link0 {
+    display: none !important;
+}
+
+.link2 {
+  display: none !important;
+}
+
+.link3 {
+  display: none !important;
+}
+
+.link4 {
+  display: none !important;
+}
+
+.link5 {
+  display: none !important;
+}
+
+.c-link {
+   padding: 7px 17px;
+   background-color: var(--pri-color);
+   border-radius: 30px;
+   transition: all 0.3s ease;
+   border: black solid 1px;
+   &:hover {
+    animation: hover;
+    animation-duration: 5.0s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease;
+    filter: drop-shadow(2px 2px 0px rgb(0,0,0,.25));
+   }
+}
+
+//Hamburger Menu
+
+.hamburger {
+    @include breakpoint(tabs) {
+        display: none;
+    }
+    width: 50px;
+    height: 20px;
+    gap: 10px;
+    display: grid;
+    cursor: pointer;
+    margin-right: 20px;
+    overflow: visible !important;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-right: 10px;
+    @include breakpoint(tabss) {
+        display: none;
+    }
+    p {
+        cursor: pointer;
+    }
+}
+
+.link {
+  color: white;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.15s ease-out;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background: black;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+  }
+  &:hover {
+    transition: all 0.15s ease-out;
+    &:before {
+        visibility: visible;
+        transform: scaleX(1);
+    }
+  }
+  p {
+    font-size: 25px;
+  }
+  }
+
+  .btn {
+    font-family: robthin;
+    width: 95px;
+    height: 30px;
+    font-size: 20px;
+    background-color: white;
+    border: black 0.5px solid;
+    border-radius: 2px;
+    &:hover {
+        background-color: #eeecec;
+        cursor: pointer;
+    }
+  }
+
+  .active {
+    z-index: 9999;
+    height: 50px;
+    width: 50px;
+    // margin-top: 20px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+      div {
+        @include breakpoint(tab) {
+          width:40px;
+          height: 2px;
+          background-color: black;  
+      }
+      
+    }
+  }
+
+  .one{
+    animation-name: example;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+  }
+  .three {
+    animation: examples;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+  }
+
+  .two {
+     display: none;
+  }
+
+  .links-bg {
+    z-index: 99999;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: white;
+    top: -12px;
+    display: flex;
+    place-items: center;  
+    justify-content: center; 
+    animation: page;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    right: 0px;
+    background-image: url(../../assets/mob-nav.png);
+    background-position: center;
+    background-size: cover;
+    overflow-y: hidden;
+    background-repeat: no-repeat;
+    @include breakpoint(smob) {
+      top: 70px;
+    }
+  }
+
+  .logo {
+    z-index: 9999999999999;
+  }
+
+  .active {
+    z-index: 9999999999999999;
+  }
+
+ul {
+    display: grid;
+    row-gap: 20px;
+    li {
+      list-style: none;
+      a {
+          font-size: 36px;
+          cursor: pointer;
+  
+      }
+    } 
+}
+
+.linkers {
+  position: relative;
+  bottom: 50px;
+} 
+
+  //Animations
+
+  @keyframes example {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(45deg);
+        position: relative;
+        top:2px;
+    }
+  }
+
+  @keyframes page{
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+  }
+
+  @keyframes examples{
+    from {transform: rotate(0deg);}
+    to {transform: rotate(-45deg);}
+  }  
+
+  @keyframes reverseexample {
+    from {transform: rotate(45deg);}
+    to {transform: rotate(0deg); 
+        position: relative;
+        top:0px;
+    }
+  }
+
+  @keyframes reverseexamples{
+    from {transform: rotate(-45deg);}
+    to {transform: rotate(0deg);}
+  }
+
+  @keyframes appear{
+    from {display: none;}
+    to {display: block;}
+  }  
+  
+  .ham-top {
+    animation-name: reverseexample;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+  }
+
+  .ham-mid {
+    animation-name: appear;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+ }
+
+ .ham-bottom {
+  animation: reverseexamples;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+ }
+
+ @keyframes hover{
+  0% {background-color: #EC8039;}
+  25% {background: linear-gradient(50deg, #51237E, #EC8039);}
+  50% {background: linear-gradient(60deg, #51237E, #EC8039);}
+  75% {background: linear-gradient(140deg, #51237E, #EC8039);}
+  100% {background: linear-gradient(180deg, #51237E, #EC8039);}
+}

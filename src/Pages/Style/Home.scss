@@ -1,0 +1,410 @@
+$breakpoints: (
+    "smob": "(max-width: 420px)",
+    "mobb": "(max-width: 650px)",
+    "mid": "(min-width:651px)" and "(max-width:919px)",
+    "hero": "(min-width:920px)" and "(max-width:1492px)",
+    "sstab": "(min-width:649px)" and "(max-width:1100px)",
+    "stab": "(min-width:653px) and (max-width:744px)",
+    "tab": "(min-width:1101px) and (max-width:1483px)",
+    "tabs": "(min-width:1000px)",
+    "maxtab": "(max-width:1000px)",
+    "sdesk": "(min-width:1001px) and (max-width:1500px)",
+    "desk": "(min-width:1501px) and (max-width:2000px)",
+    "icon-fix": "(max-width:652px)",
+);
+
+@mixin breakpoint($user-value) {
+  $my-map: map-get($breakpoints, $user-value);
+  @if $my-map {
+      @media (#{$my-map}) {
+          @content;
+      }
+  }@else {
+      @error "breakpoint #{$user-value} Not Working"
+  }
+};
+
+@font-face {
+    font-family: Robextra;
+    src: url(../../Fonts/Roboto-static/Roboto-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: Robthin;
+    src: url(../../Fonts/Roboto-static/Roboto-Thin.ttf);
+}
+
+Link {
+    text-decoration: none;
+
+}
+
+.homepage{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    background-position: center center;
+    overflow:hidden;
+}
+
+.navbar{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    margin: 0px;
+    padding: 0px;
+    align-items: center;
+    height: 100px;
+}
+
+.img {
+    height: 450px;
+    margin: auto;
+    z-index: 10;
+    bottom: 0px;
+    @include breakpoint(mobb) {
+        position: relative;
+        left: -20px;
+    }        
+    @include breakpoint(mid) {
+        //   left: 0px;
+    }
+    @include breakpoint(smob) {
+        width: 120%;
+        left: -20px;
+
+    }
+}
+
+.img-container {
+    position: absolute;
+    bottom: 0px;
+    margin: auto;
+    width: 100vw;
+    display: flex;
+    justify-self: center;
+    height: fit-content;
+}
+
+.words1 {
+    
+}
+
+.Hero-words {
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: Robextra;
+    gap: 10px;
+    z-index: 1000;
+
+    p {
+        font-family: Robthin;
+        font-size: 32px;
+        @include breakpoint(mobb) {
+            font-size: 20px;
+        }
+        
+    }
+
+    .big-link {
+        font-size: 146px;
+        color: black;
+        text-decoration: none;
+        margin: 0px 10px;
+        transition: all 0.2s ease;
+        z-index: 1000;
+        transition: all 0.2 ease;
+        @include breakpoint(mobb) {
+            font-size: 45px !important;
+            z-index: 1000;
+            position: relative;
+        }
+        @include breakpoint(mid) {
+            font-size: 55px;
+        }
+        @include breakpoint(smob) {
+            font-size: 30px;   
+        }
+        @include breakpoint(hero) {
+            font-size: 105px;
+        }
+        @include breakpoint(sstab) {
+            font-size: 70px;    
+        }
+        @include breakpoint(tab) {
+            font-size: 110px;    
+        }
+    }
+
+    .big-link1 {
+        font-size: 146px;
+        color: transparent;
+        text-decoration: none;
+        -webkit-text-stroke: 1px #000000;
+        margin: 0px 10px;
+        transition: all 0.2s ease;
+        z-index: 1000;
+        transition: all 0.2 ease;
+        @include breakpoint(mobb) {
+            font-size: 45px !important;
+            z-index: 1000;
+            position: relative;
+        }
+        @include breakpoint(mid) {
+            font-size: 50px;
+        }
+        @include breakpoint(smob) {
+            font-size: 35px;
+            color: #000000;   
+            -webkit-text-stroke: 0px black;
+        }
+        @include breakpoint(hero) {
+            font-size: 105px;
+        }
+        @include breakpoint(sstab) {
+            font-size: 70px;   
+        }
+        @include breakpoint(tab) {
+            font-size: 110px;   
+        }        
+    }
+}
+
+.links{
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+
+}
+
+.img-container {
+    
+}
+
+.developer {
+    &:hover {
+        font-size: 160px;
+    }
+        @include breakpoint(mobb) {
+                &:hover {
+                    font-size: 60px;
+                }
+        }
+        @include breakpoint(mid) {
+            &:hover {
+                font-size: 90px;
+            }
+        }
+        @include breakpoint(smob) {
+            &:hover {
+                font-size: 80px;              
+            }  
+        }
+        @include breakpoint(hero) {
+            &:hover {
+                font-size: 105px;
+            }             
+        }
+        @include breakpoint(sstab) {
+            &:hover {
+                font-size: 90px;
+            }    
+        }
+        @include breakpoint(tab) {
+            &:hover {
+                font-size: 150px;  
+            }  
+        }
+}
+
+.designer {
+            &:hover {
+        font-size: 160px;
+    }
+        @include breakpoint(mobb) {
+                &:hover {
+                    font-size: 60px;
+                }
+        }
+        @include breakpoint(mid) {
+            &:hover {
+                font-size: 90px;
+            }
+        }
+        @include breakpoint(smob) {
+            &:hover {
+                font-size: 80px;              
+            }  
+        }
+        @include breakpoint(hero) {
+            &:hover {
+                font-size: 105px;
+            }             
+        }
+        @include breakpoint(sstab) {
+            &:hover {
+                font-size: 90px;
+            }    
+        }
+        @include breakpoint(tab) {
+            &:hover {
+                font-size: 150px;  
+            }  
+        }    
+}
+
+.editor {
+            &:hover {
+        font-size: 160px;
+    }
+        @include breakpoint(mobb) {
+                &:hover {
+                    font-size: 60px;
+                }
+        }
+        @include breakpoint(mid) {
+            &:hover {
+                font-size: 90px;
+            }
+        }
+        @include breakpoint(smob) {
+            &:hover {
+                font-size: 80px;              
+            }  
+        }
+        @include breakpoint(hero) {
+            &:hover {
+                font-size: 105px;
+            }             
+        }
+        @include breakpoint(sstab) {
+            &:hover {
+                font-size: 90px;
+            }    
+        }
+        @include breakpoint(tab) {
+            &:hover {
+                font-size: 150px;  
+            }  
+        }      
+}
+
+.writer {
+            &:hover {
+        font-size: 160px;
+    }
+        @include breakpoint(mobb) {
+                &:hover {
+                    font-size: 60px;
+                }
+        }
+        @include breakpoint(mid) {
+            &:hover {
+                font-size: 90px;
+            }
+        }
+        @include breakpoint(smob) {
+            &:hover {
+                font-size: 80px;              
+            }  
+        }
+        @include breakpoint(hero) {
+            &:hover {
+                font-size: 105px;
+            }             
+        }
+        @include breakpoint(sstab) {
+            &:hover {
+                font-size: 90px;
+            }    
+        }
+        @include breakpoint(tab) {
+            &:hover {
+                font-size: 150px;  
+            }  
+        }  
+}
+
+.artist {
+            &:hover {
+        font-size: 160px;
+    }
+            @include breakpoint(mobb) {
+                &:hover {
+                    font-size: 60px;
+                }
+        }
+        @include breakpoint(mid) {
+            &:hover {
+                font-size: 90px;
+            }
+        }
+        @include breakpoint(smob) {
+            &:hover {
+                font-size: 80px;              
+            }  
+        }
+        @include breakpoint(hero) {
+            &:hover {
+                font-size: 105px;
+            }             
+        }
+        @include breakpoint(sstab) {
+            &:hover {
+                font-size: 90px;
+            }    
+        }
+        @include breakpoint(tab) {
+            &:hover {
+                font-size: 150px;  
+            }  
+        }  
+}
+
+.reply {
+            &:hover {
+        font-size: 160px;
+    }
+            @include breakpoint(mobb) {
+                &:hover {
+                    font-size: 60px;
+                }
+        }
+        @include breakpoint(mid) {
+            &:hover {
+                font-size: 90px;
+            }
+        }
+        @include breakpoint(smob) {
+            &:hover {
+                font-size: 80px;              
+            }  
+        }
+        @include breakpoint(hero) {
+            &:hover {
+                font-size: 105px;
+            }             
+        }
+        @include breakpoint(sstab) {
+            &:hover {
+                font-size: 90px;
+            }    
+        }
+        @include breakpoint(tab) {
+            &:hover {
+                font-size: 150px;  
+            }  
+        }  
+}
